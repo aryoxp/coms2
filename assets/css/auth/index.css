@@ -1,0 +1,29 @@
+#logon-form {
+    max-width: 420px;
+}
+
+body {
+
+}
+
+input {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+input[type=text]{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[type=password]{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -1px;
+}
+
+label.checkbox {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
+}

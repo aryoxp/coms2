@@ -1,0 +1,211 @@
+@import "../custom-icons/cus-icons.css";
+
+#footer {
+	border-top:1px solid #d2d2d2;
+	padding:15px 20px 10px;
+	color:#555;
+    background-color: #f8f8f8;
+    margin-top: 1em;
+    clear: both;
+    position: relative;
+    top:1em;
+    font-size: 0.9em;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right:10px solid white;
+    display: inline-block;
+    position: relative;
+    left: 0px;
+}
+
+.transparent {
+    border-right:10px solid transparent;
+}
+
+.coms-sidebar {
+    background-color: #444;
+    color: #ccc;
+    box-shadow: -2px 0 1px #BBB;
+    border-bottom-right-radius: 15px;
+    -webkit-transition-duration: 0.3s;
+    padding: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    min-height: 400px;
+}
+
+.coms-sidebar .btn-sidebar {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.coms-sidebar .container {
+    margin-top: 1em;
+}
+
+.coms-sidebar hr {
+    border-top:1px solid #606060;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.coms-sidebar ul.nav li {
+    -webkit-transition-duration: 0.3s;
+    white-space: nowrap;
+}
+.coms-sidebar ul.nav li.nav-divider {
+    height: 2px;
+    border-top:1px solid #333;
+    background-color: #555;
+    margin: 1px 0 2px;
+}
+.coms-sidebar ul.nav li a { color:#CCC; padding: 0.5em 1em; border-radius: 0; }
+.coms-sidebar ul.nav li a:hover { color:#dd514c; background-color: #555; }
+
+.center {
+    text-align: center;
+}
+
+.coms-sidebar .tooltip.in { opacity: 1; }
+.coms-sidebar .tooltip-inner {
+    color:white;
+    background-color: #dd514c;
+    min-width: 100px;
+    box-shadow: 1px 1px 2px #777;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+.coms-sidebar .tooltip.right .tooltip-arrow {
+    border-right-color: #dd514c;
+}
+
+.coms-sidebar .panel-group {
+    margin-top: 1em;
+}
+
+.coms-sidebar .panel-group .panel {
+    border-radius: 0;
+    background-color: #666;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #555;
+}
+
+.coms-sidebar .panel-group .panel:first-child {
+    border-top: none;
+}
+
+.coms-sidebar .panel-default {
+    border: none;
+}
+
+.coms-sidebar .panel-heading {
+    background-color: #444;
+    color: #ccc;
+    border-radius: 0;
+    white-space: nowrap;
+    padding:0;
+}
+
+.coms-sidebar .panel-heading a {
+    color: #ccc;
+    display: block;
+    text-decoration: none;
+    padding: 10px 0 10px 15px;
+}
+
+.coms-sidebar .panel-heading:hover {
+    background-color: #4f4f4f;
+}
+
+.coms-sidebar .panel-group .panel-heading+.panel-collapse .panel-body {
+    border-top: none;
+    padding: 0;
+}
+
+.coms-sidebar .panel-group .panel+.panel {
+    margin-top: 0;
+}
+
+.coms-sidebar .panel-body ul {
+    margin: 0;
+    padding: 0;
+}
+
+.coms-sidebar .panel-body ul li {
+    list-style: none;
+    border-top: 1px solid #5f5f5f;
+}
+
+.coms-sidebar .panel-body ul li a {
+    display: block;
+    padding: 0.5em 0 0.5em 1em;
+    white-space: nowrap;
+    color: #ccc;
+}
+
+.coms-sidebar .panel-body ul li a:hover {
+    background-color: #555;
+    color: #111;
+    text-decoration: none;
+}
+
+.coms-content {
+    -webkit-transition-duration: 0.3s;
+    padding-top: 1em;
+}
+
+.flyover {
+    top: 60px;
+    left: 150%;
+    overflow: hidden;
+    position: fixed;
+    width: 50%;
+    opacity: 0.9;
+    z-index: 2;
+    transition: left 0.6s ease-out 0s;
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 1px 0px #E4E4E4;
+    padding: 1em;
+}
+
+.flyover-centered {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flyover.in {
+    left: 50%;
+}
+
+.navbar-right .tooltip-inner {
+    color:white;
+    background-color: #dd514c;
+    min-width: 100px;
+    box-shadow: 1px 1px 2px #777;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+.navbar-right .tooltip.left .tooltip-arrow {
+    border-left-color: #dd514c;
+}
+
+.navbar-default .navbar-nav>li>a.btn-logout {
+    padding: 5px 10px;
+    margin: 8px;
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a.btn-logout:hover {
+    color: inherit;
+    border-color: #AAA;
+    background-color: #CCC;
+}
