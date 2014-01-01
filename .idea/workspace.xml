@@ -44,7 +44,7 @@
       <file leaf-file-name="media.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/stb/model/media.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="8" selection-start="2752" selection-end="2752" vertical-scroll-proportion="0.7660312" vertical-offset="938" max-vertical-offset="1515">
+            <state line="80" column="42" selection-start="2550" selection-end="2550" vertical-scroll-proportion="0.4540728" vertical-offset="938" max-vertical-offset="1515">
               <folding>
                 <element signature="e#7#89#0" expanded="true" />
               </folding>
@@ -425,6 +425,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9d0ad616-117e-454b-9c83-ce24241771d7" name="Default" comment="" />
@@ -578,7 +595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/stb/model/media.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="8" selection-start="2752" selection-end="2752" vertical-scroll-proportion="0.7660312" vertical-offset="938" max-vertical-offset="1515">
+        <state line="80" column="42" selection-start="2550" selection-end="2550" vertical-scroll-proportion="0.4540728" vertical-offset="938" max-vertical-offset="1515">
           <folding>
             <element signature="e#7#89#0" expanded="true" />
           </folding>
