@@ -50,9 +50,11 @@ class comscontroller extends controller {
 		autoloader::register(array($this, 'autoload_module_model'));
 		autoloader::register(array($this, 'autoload_module_library'));
 
-        foreach($this->comsmodules as $module) {
-            if(file_exists(MODULE . $module . '/functions.php'))
-                include MODULE . $module . '/functions.php';
+        if(is_array($this->comsmodules) and count($this->comsmodules)) {
+            foreach($this->comsmodules as $module) {
+                if(file_exists(MODULE . $module . '/functions.php'))
+                    include MODULE . $module . '/functions.php';
+            }
         }
 	}
 	
