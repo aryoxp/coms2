@@ -46,7 +46,7 @@
     <?php if(isset($notifications) and is_array($notifications) and count($notifications)) {
         $class = "";
         foreach($notifications as $n) {
-            switch($n[1]) {
+            switch($n[0]) {
                 case notification::success:
                     $class = "alert-success";
                     break;
@@ -62,7 +62,7 @@
             ?>
             <div class="alert <?php echo $class; ?> alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <?php echo $n[0]; ?>
+                <?php echo $n[1]; ?>
             </div>
             <?php
         }
