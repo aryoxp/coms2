@@ -23,7 +23,7 @@ $(function(){
 	  .click(function () {
         var btn = $(this);
         btn.button('loading');
-            alert(btn);
+        //alert(btn);
 		savePost(btn);	
 	});
 	
