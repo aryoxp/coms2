@@ -37,7 +37,7 @@ class model_media extends model {
         $sql[] = "DROP TABLE IF EXISTS `stb_media_vod`";
         $sql[] = "DROP TABLE IF EXISTS `stb_media`";
         $sql[] = "CREATE TABLE IF NOT EXISTS `stb_media` (
-                  `id` INT(11) UNSIGNED NOT NULL,
+                  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
                   `name` VARCHAR(100) NOT NULL,
                   `description` MEDIUMTEXT NULL,
                   `file` VARCHAR(200) NULL,
@@ -90,7 +90,32 @@ class model_media extends model {
     }
 
     public function save() {
-        var_dump($_POST);
+        //var_dump($_POST);
+
+        $data['name'] = $this->db->escape($_POST['name']);
+        $data['description'] = $this->db->escape(trim($_POST['description']));
+        $data['file'] = $this->db->escape($_POST['file']);
+        $data['stream'] = $this->db->escape($_POST['stream']);
+        $data['status'] = $this->db->escape($_POST['status']);
+
+        $result = $this->db->insert('stb_media', $data); //var_dump($this->db); //var_dump($result);
+        if($result == 1) {
+            $id = $this->db->getLastInsertId();
+            $table = '';
+            switch($_POST['mediatype']) {
+                case 'tv':
+                    $table = "stb_media_tv"; break;
+                case 'radio':
+                    $table = "stb_media_radio"; break;
+                case 'vod':
+                    $table = 'stb_media_void'; break;
+            }
+            $this->db->insert($table, array('id'=>$id));
+            return $id;
+        } else {
+            $this->error == $this->db->getLastError();
+            return $result;
+        }
     }
 
 }

@@ -24,21 +24,16 @@ class stb_media extends comsmodule {
     }
 
     public function save() {
-
+        $notification = new notification($this->coms);
         $mmedia = new model_media();
-        $id = $mmedia->save();
-
-        if($id) {
-            $data['id'] = $id;
-            $data['status'] = 'OK';
-            $data['modified'] = date('d/m/Y H:i:s');
+        $result = $mmedia->save();
+        if($result > 0) {
+            $notification->add($notification::success, 'Media successfully saved to database.');
+            $this->redirect('module/stb/media');
         } else {
-            $data['status'] = 'NOK';
-            $data['error'] = $mmedia->error;
+            $notification->add($notification::error, 'Unable to save media. '.$mmedia->error);
+            $this->redirect('module/stb/media/newmedia');
         }
-
-        header('mime-type:application/json');
-        echo json_encode($data);
-
+        exit;
     }
 }

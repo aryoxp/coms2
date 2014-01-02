@@ -7,7 +7,7 @@ $(function(){
             ];
         CKEDITOR.replace('ckeditor', {
             toolbar:'minimal',
-            height:200,
+            height:100,
             resize_enabled: false,
             customConfig:'',
             removePlugins: 'elementspath'
@@ -15,8 +15,17 @@ $(function(){
     }
 
 	$('#form-newmedia').submit(function(event){
-        event.preventDefault();
-		return false;
+
+        if(CKEDITOR)
+        {
+            for ( instance in CKEDITOR.instances )
+                CKEDITOR.instances[instance].updateElement();
+        }
+
+        if(validatePost()) {
+            $('#form-newmedia').submit();
+        } else event.preventDefault();
+		//return false;
 	});
 
 	$('#btn-submit')
@@ -46,7 +55,8 @@ $(function(){
         }
 
 		if(validatePost()) {
-					
+            $('#form-newmedia').submit();
+		    /*
 			var d = $('#form-newmedia').serialize();
 
 			$('#save-status').text('Saving...');
@@ -70,6 +80,7 @@ $(function(){
 				alert("error: " + data.responseText);
 				btn.button('reset');
 			});
+			*/
 		} else {
 			btn.button('reset');	
 		}

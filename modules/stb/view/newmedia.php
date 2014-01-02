@@ -1,6 +1,6 @@
 <h2>New Media</h2>
 <hr>
-<form id="form-newmedia" class="form-horizontal" role="form" method="post" action="">
+<form id="form-newmedia" class="form-horizontal" enctype="multipart/form-data" role="form" method="post" action="<?php echo $this->location('module/stb/media/save'); ?>">
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Media Name</label>
         <div class="col-sm-10">
@@ -15,18 +15,13 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label">Media File</label>
-        <div class="col-lg-10 col-md-10 col-sm-10 input-group">
-        <span class="input-group-btn">
-            <span class="btn btn-primary btn-file">
-                Browse&hellip; <input type="file" name="file">
-            </span>
-        </span>
-            <input type="text" class="form-control" readonly>
+        <label class="col-sm-2 control-label">Media File URL</label>
+        <div class="col-sm-10">
+            <input type="text" name="file" class="form-control" placeholder="Media File URL">
         </div>
     </div>
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Stream URL</label>
+        <label class="col-sm-2 control-label">Stream URL</label>
         <div class="col-sm-10">
             <input type="text" name="stream" class="form-control" placeholder="Media Stream URL">
         </div>
