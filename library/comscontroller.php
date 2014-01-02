@@ -109,7 +109,7 @@ class comscontroller extends controller {
 
     public function show($view, $data = null, $bare = false) {
         $this->content = $this->view($view, $data, true);
-
+        //var_dump($bare);
         $this->head($bare);
         if(!$bare) {
             $this->view('container.php', array('sidebar'=>$this->sidebar, 'content'=>$this->content));

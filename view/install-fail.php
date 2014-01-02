@@ -1,7 +1,7 @@
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span6 offset3">
-		<div style="font-size: 1.5em; margin-bottom: 1em;">Woops! COMS Installation Fail.</em></div>
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="">
+		<div style="font-size: 1.5em; margin: 1em 0;">Woops! COMS Installation Fail.</em></div>
 				
 		<div class="well">
 			<p>Some part of COMS installation were fails. We were fail in executing the following queries: </p>

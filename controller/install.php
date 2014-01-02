@@ -14,19 +14,23 @@ class controller_install extends comscontroller {
 		//var_dump($data);
 		$db->close();
 		
-		//$this->view('header.php');
-		$this->show('install.php', $data);
-		//$this->view('footer.php');
+		//$this->view('header-bare.php');
+		$this->show('install.php', $data, true);
+		//$this->view('footer-bare.php');
 		
 	}
 	
 	public function doinstall() {
 		$raw = file_get_contents("coms.sql");
-		$sqls = explode(";\n", $raw);
+
+		$sqls = explode(";\r\n", $raw);
+
+		//var_dump($sqls);
+
 		$db = new db('default');
-		$this->view('header-bare.php');
+		//$this->view('header-bare.php');
 		ob_start();
-		echo '<div class="container"><div class="row"><div class="span12 well">';
+		echo '<div class="row"><div class="col-sm-6 col-sm-offset-3"><div class="well">';
 		echo '<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#log">Show Log</button>';
 		echo '<div id="log" class="collapse"><div style="padding:1em">';
 		$success = true;
@@ -48,9 +52,9 @@ class controller_install extends comscontroller {
 		echo '</div></div></div></div></div>';
 		$log = ob_get_clean();
 		if( $success )
-			$this->view('install-success.php');
-		else $this->view('install-fail.php', array('fails'=>$fails));
-		echo $log;
-		$this->view('footer-bare.php');	
+			$this->show('install-success.php', array('content'=>$log), true);
+		else $this->show('install-fail.php', array('fails'=>$fails), true);
+		//echo $log;
+		//$this->view('footer-bare.php');	
 	}
 }

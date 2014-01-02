@@ -22,7 +22,7 @@ class controller_home extends comscontroller {
 		$this->add_script('js/home.js');
         autoloader::register(array($this, 'autoload_model'));
         $modules = $this->get_loadedmodules();
-
+        $data = array();
         foreach($modules as $m) {
             $this->module = $m;
             $dashboard = getcwd()."/modules/".$m."/dashboard.php";

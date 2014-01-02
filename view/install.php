@@ -1,8 +1,7 @@
 <?php //var_dump($db); ?>
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span6 offset3">
-		<div style="font-size: 1.5em; margin-bottom: 1em;"><h1 style="display: inline; font-weight: normal;">Welcome</h1> <em>to COMS Installation</em></div>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+		<div style="font-size: 1.5em; margin: 1em 0;"><h1 style="display: inline; font-weight: normal;">Welcome</h1> <em>to COMS Installation</em></div>
 		<?php $ok = false; ?>
 		<?php if($db) : $ok = true; ?>
 		<div class="alert alert-success">
@@ -36,4 +35,3 @@
 		<?php endif; ?>
 		</div>
 	</div>
-</div>

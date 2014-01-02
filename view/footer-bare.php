@@ -6,7 +6,7 @@
 <script src="<?php echo $this->asset("js/base.js"); ?>"></script>
 <?php
 ;
-if(is_array($scripts) and count($scripts)) {
+if(isset($scripts) and is_array($scripts) and count($scripts)) {
     foreach( $scripts as $s) : ?><script src="<?php echo preg_match('/^http/i', $s)? $s : $this->asset($s); ?>"></script>
     <?php
     endforeach;
