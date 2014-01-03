@@ -6,29 +6,20 @@ class controller_install extends comscontroller {
 	}	
 	
 	public function index() {
-	
 		$db = new db();
 		$db->testConnect();
 		$data['connect'] = $db->testConnect();
 		$data['db'] = $db->testSelectDb();
-		//var_dump($data);
 		$db->close();
-		
-		//$this->view('header-bare.php');
 		$this->show('install.php', $data, true);
-		//$this->view('footer-bare.php');
-		
 	}
 	
 	public function doinstall() {
 		$raw = file_get_contents("coms.sql");
 
-		$sqls = explode(";\r\n", $raw);
-
-		//var_dump($sqls);
+		$sqls = explode(";\r\n", $raw); //var_dump($sqls);
 
 		$db = new db('default');
-		//$this->view('header-bare.php');
 		ob_start();
 		echo '<div class="row"><div class="col-sm-6 col-sm-offset-3"><div class="well">';
 		echo '<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#log">Show Log</button>';
@@ -54,7 +45,5 @@ class controller_install extends comscontroller {
 		if( $success )
 			$this->show('install-success.php', array('content'=>$log), true);
 		else $this->show('install-fail.php', array('fails'=>$fails), true);
-		//echo $log;
-		//$this->view('footer-bare.php');	
 	}
 }
