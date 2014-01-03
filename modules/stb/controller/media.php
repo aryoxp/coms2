@@ -28,10 +28,10 @@ class stb_media extends comsmodule {
         $mmedia = new model_media();
         $result = $mmedia->save();
         if($result > 0) {
-            $notification->add($notification::success, 'Media successfully saved to database.');
+            $notification->add('Media successfully saved to database.', $notification::success);
             $this->redirect('module/stb/media');
         } else {
-            $notification->add($notification::error, 'Unable to save media. '.$mmedia->error);
+            $notification->add('Unable to save media. '.$mmedia->error, $notification::error);
             $this->redirect('module/stb/media/newmedia');
         }
         exit;
