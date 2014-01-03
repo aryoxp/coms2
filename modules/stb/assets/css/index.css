@@ -1,0 +1,10 @@
+.media-description {
+    display: block;
+    height: auto;
+    overflow: hidden;
+}
+.excerpt {
+    display: block;
+    height: 65px;
+    overflow: hidden;
+}

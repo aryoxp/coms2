@@ -24,5 +24,22 @@ $(function(){
 			});
         event.preventDefault();
 	});
-	
+
+    //$('.media-description').dblclick(function(){
+    //    $(this).toggleClass('excerpt');
+    //});
+
+    $('.media-description').each(function() {
+        $(this).data('originalHeight', $(this).height());
+        var originalHeight = $(this).height();
+        $(this).css({'height': '65px', 'overflow': 'hidden'});
+        $(this).dblclick(function() {
+            if($(this).css("height") != "65px") {
+                $(this).animate({height:'65px'}, 300, 'swing');
+            } else {
+                $(this).animate({height:originalHeight}, 300, 'swing');
+            }
+        });
+            // animate $this to newHeight however you like here
+    });
 });

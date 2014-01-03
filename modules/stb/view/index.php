@@ -83,7 +83,7 @@
                                 else echo '<div class="label label-warning">Inactive</div>'
                                 ?>
                             </h3>
-                            <span class="media-description"><?php echo $m->description; ?></span>
+                            <span class="media-description excerpt"><?php echo $m->description; ?></span>
                             <br><div class="label label-info">File</div><code><?php echo $m->file; ?></code>
                             <br><div class="label label-success">Stream</div><code><?php echo $m->stream; ?></code>
                         </td>
@@ -122,7 +122,7 @@
                                 else echo '<div class="label label-warning">Inactive</div>'
                                 ?>
                             </h3>
-                            <span class="media-description"><?php echo $m->description; ?></span>
+                            <span class="media-description excerpt"><?php echo $m->description; ?></span>
                             <br><div class="label label-info">File</div><code><?php echo $m->file; ?></code>
                             <br><div class="label label-success">Stream</div><code><?php echo $m->stream; ?></code>
                         </td>
