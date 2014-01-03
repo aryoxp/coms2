@@ -23,8 +23,122 @@
 </ul>
 
 <!-- Tab panes -->
-<div class="tab-content">
-    <div class="tab-pane fade in active" id="tv">TV</div>
-    <div class="tab-pane fade" id="radio">Radio</div>
-    <div class="tab-pane fade" id="vod">VoD</div>
+<div class="tab-content" style="padding-top: 1em;">
+    <div class="tab-pane fade in active" id="tv">
+        <?php //var_dump($media_tv);
+            if(isset($media_tv) and is_array($media_tv) and count($media_tv)) {
+                ?>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Media</th>
+                            <th>Media Action</th>
+                        </tr>
+                    </thead>
+                <?php
+                foreach($media_tv as $m) { //var_dump($m);
+                    ?>
+                    <tr>
+                        <td><h3><?php echo $m->name; ?>
+                            <?php if($m->status) echo '<small><div class="label label-success">Active</div></small>';
+                            else echo '<div class="label label-warning">Inactive</div>'
+                            ?>
+                            </h3>
+                            <span class="media-description"><?php echo $m->description; ?></span>
+                            <br><div class="label label-info">File</div><code><?php echo $m->file; ?></code>
+                            <br><div class="label label-success">Stream</div><code><?php echo $m->stream; ?></code>
+                        </td>
+                        <td style="width: 120px">
+                            <div class="btn-group">
+                            <a href="<?php echo $this->location('module/stb/media/edit/'.$m->id); ?>" class="btn btn-sm btn-warning" data-id="<?php echo $m->id; ?>">Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger btn-delete" data-type="tv" data-id="<?php echo $m->id; ?>">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </table>
+                <?php
+            } else echo '<div class="alert alert-info">No Media</div>';
+        ?>
+    </div>
+    <div class="tab-pane fade" id="radio">
+        <?php //var_dump($media_tv);
+        if(isset($media_radio) and is_array($media_radio) and count($media_radio)) {
+            ?>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Media</th>
+                    <th>Media Action</th>
+                </tr>
+                </thead>
+                <?php
+                foreach($media_radio as $m) { //var_dump($m);
+                    ?>
+                    <tr>
+                        <td><h3><?php echo $m->name; ?>
+                                <?php if($m->status) echo '<small><div class="label label-success">Active</div></small>';
+                                else echo '<div class="label label-warning">Inactive</div>'
+                                ?>
+                            </h3>
+                            <span class="media-description"><?php echo $m->description; ?></span>
+                            <br><div class="label label-info">File</div><code><?php echo $m->file; ?></code>
+                            <br><div class="label label-success">Stream</div><code><?php echo $m->stream; ?></code>
+                        </td>
+                        <td style="width: 120px">
+                            <div class="btn-group">
+                                <a href="<?php echo $this->location('module/stb/media/edit/'.$m->id); ?>" class="btn btn-sm btn-warning" data-id="<?php echo $m->id; ?>">Edit</a>
+                                <a href="#" class="btn btn-sm btn-danger btn-delete" data-type="radio" data-id="<?php echo $m->id; ?>">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </table>
+        <?php
+        } else echo '<div class="alert alert-info">No Media</div>';
+        ?>
+    </div>
+    <div class="tab-pane fade" id="vod">
+        <?php //var_dump($media_vod);
+        if(isset($media_vod) and is_array($media_vod) and count($media_vod)) {
+            ?>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Media</th>
+                    <th>Media Action</th>
+                </tr>
+                </thead>
+                <?php
+                foreach($media_vod as $m) { //var_dump($m);
+                    ?>
+                    <tr>
+                        <td><h3><?php echo $m->name; ?>
+                                <?php if($m->status) echo '<small><div class="label label-success">Active</div></small>';
+                                else echo '<div class="label label-warning">Inactive</div>'
+                                ?>
+                            </h3>
+                            <span class="media-description"><?php echo $m->description; ?></span>
+                            <br><div class="label label-info">File</div><code><?php echo $m->file; ?></code>
+                            <br><div class="label label-success">Stream</div><code><?php echo $m->stream; ?></code>
+                        </td>
+                        <td style="width: 120px">
+                            <div class="btn-group">
+                                <a href="<?php echo $this->location('module/stb/media/edit/'.$m->id); ?>" class="btn btn-sm btn-warning" data-id="<?php echo $m->id; ?>">Edit</a>
+                                <a href="#" class="btn btn-sm btn-danger btn-delete" data-type="vod" data-id="<?php echo $m->id; ?>">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </table>
+        <?php
+        } else echo '<div class="alert alert-info">No Media</div>';
+        ?>
+    </div>
 </div>

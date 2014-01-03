@@ -10,7 +10,16 @@ class stb_media extends comsmodule {
     }
 
     public function index() {
-        $this->view('index.php');
+
+        $mmedia = new model_media();
+        $data['media_tv'] = $mmedia->getAll('tv');
+        $data['media_radio'] = $mmedia->getAll('radio');
+        $data['media_vod'] = $mmedia->getAll('vod');
+
+        //var_dump($data);
+        $this->add_style('css/index.css');
+        $this->add_script('js/index.js');
+        $this->view('index.php', $data);
     }
 
     public function newmedia() {
@@ -35,5 +44,30 @@ class stb_media extends comsmodule {
             $this->redirect('module/stb/media/newmedia');
         }
         exit;
+    }
+
+    public function delete() {
+        $mmedia = new model_media();
+        $id = $_POST['id'];
+        $type = $_POST['type'];
+        $result = $mmedia->delete($id, $type);
+        $data['status'] = 'NOK';
+        if($result) {
+            $data['status'] = 'OK';
+        } else {
+            $data['error'] = $mmedia->error;
+        }
+        header('content-type: application/json');
+        echo json_encode($data);
+    }
+
+    public function edit($id) {
+
+        $this->add_style('css/fileinput.css');
+        $this->add_style('css/editor.css');
+        $this->coms->add_script('ckeditor/ckeditor.js');
+        $this->add_script('js/write.js');
+
+        $this->view('newmedia.php');
     }
 }

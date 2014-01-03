@@ -108,7 +108,7 @@ class model_media extends model {
                 case 'radio':
                     $table = "stb_media_radio"; break;
                 case 'vod':
-                    $table = 'stb_media_void'; break;
+                    $table = 'stb_media_vod'; break;
             }
             $this->db->insert($table, array('id'=>$id));
             return $id;
@@ -118,4 +118,37 @@ class model_media extends model {
         }
     }
 
+    public function getAll($type = null){
+        $result = array();
+        $sql = "SELECT id, name, description, file, stream, logo, icon, status FROM stb_media m ";
+        switch($type) {
+            case 'tv':
+                $sql .= "WHERE m.id IN (SELECT id FROM stb_media_tv)"; break;
+            case 'radio':
+                $sql .= "WHERE m.id IN (SELECT id FROM stb_media_radio)"; break;
+            case 'vod':
+                $sql .= "WHERE m.id IN (SELECT id FROM stb_media_vod)"; break;
+        }
+        $result = $this->db->query($sql); //var_dump($this->db);
+        return $result;
+    }
+
+    public function delete($id, $type){
+        $data['id'] = $this->db->escape($id);
+        $child = false;
+        switch($type){
+            case 'tv':
+                $child = $this->db->delete('stb_media_tv', $data); break;
+            case 'radio':
+                $child = $this->db->delete('stb_media_radio', $data); break;
+            case 'vod':
+                $child = $this->db->delete('stb_media_vod', $data); break;
+        }
+        if($child) {
+            $result = $this->db->delete('stb_media', $data);
+            if($result) return true;
+        }
+        $this->error = $this->db->getLastError();
+        return false;
+    }
 }

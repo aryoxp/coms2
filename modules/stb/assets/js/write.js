@@ -15,25 +15,16 @@ $(function(){
     }
 
 	$('#form-newmedia').submit(function(event){
-
-        if(CKEDITOR)
-        {
-            for ( instance in CKEDITOR.instances )
-                CKEDITOR.instances[instance].updateElement();
-        }
-
         if(validatePost()) {
             $('#form-newmedia').submit();
         } else event.preventDefault();
-		//return false;
 	});
 
 	$('#btn-submit')
 	  .click(function () {
         var btn = $(this);
         btn.button('loading');
-        //alert(btn);
-		savePost(btn);	
+		savePost(btn);
 	});
 	
 	var validatePost = function(){
@@ -44,8 +35,7 @@ $(function(){
 		}
 		return true;
 	}
-	  
-	  
+
 	var savePost = function(btn){
 
         if(CKEDITOR)
@@ -56,31 +46,6 @@ $(function(){
 
 		if(validatePost()) {
             $('#form-newmedia').submit();
-		    /*
-			var d = $('#form-newmedia').serialize();
-
-			$('#save-status').text('Saving...');
-			
-			$.post(
-				base_url + "module/stb/media/save",
-				d,
-				function(data) {
-                    alert(data); return;
-					if(data.status == "OK") {
-						$('#id').val(data.id);
-						$('#save-status').text(data.modified);
-                        exit;
-						window.location.replace(base_url + "module/stb/media/edit/" + data.id);
-					} else {
-						$('#save-status').text('Failed to save media. ' + data.error);
-					}
-					btn.button('reset');
-				}
-			).error(function(data){
-				alert("error: " + data.responseText);
-				btn.button('reset');
-			});
-			*/
 		} else {
 			btn.button('reset');	
 		}
