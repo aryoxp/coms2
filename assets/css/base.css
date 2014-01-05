@@ -108,7 +108,8 @@
     background-color: #444;
     color: #ccc;
     border-radius: 0;
-    white-space: nowrap;
+    -webkit-white-space: nowrap;
+    text-overflow: ellipsis;
     padding:0;
 }
 
@@ -145,7 +146,8 @@
 .coms-sidebar .panel-body ul li a {
     display: block;
     padding: 0.5em 0 0.5em 1em;
-    white-space: nowrap;
+    -webkit-white-space: nowrap;
+    text-overflow: ellipsis;
     color: #ccc;
 }
 
