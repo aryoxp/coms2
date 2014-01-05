@@ -97,7 +97,17 @@ class model_media extends model {
         $data['file'] = $this->db->escape($_POST['file']);
         $data['stream'] = $this->db->escape($_POST['stream']);
         $data['status'] = $this->db->escape($_POST['status']);
-
+        if(isset($_POST['id'])) {
+            $where['id'] = $this->db->escape($_POST['id']);
+            $result = $this->db->update('stb_media', $data, $where);
+            if($result == 1) {
+                return true;
+            } else {
+                if($this->error == '') return true;
+                $this->error = $this->db->getLastError();
+                return false;
+            }
+        }
         $result = $this->db->insert('stb_media', $data); //var_dump($this->db); //var_dump($result);
         if($result == 1) {
             $id = $this->db->getLastInsertId();
@@ -113,7 +123,7 @@ class model_media extends model {
             $this->db->insert($table, array('id'=>$id));
             return $id;
         } else {
-            $this->error == $this->db->getLastError();
+            $this->error = $this->db->getLastError();
             return $result;
         }
     }
@@ -150,5 +160,13 @@ class model_media extends model {
         }
         $this->error = $this->db->getLastError();
         return false;
+    }
+
+    public function get($id = 0) {
+        $id = $this->db->escape($id);
+        $sql = "SELECT id, name, description, file, stream, logo, icon, status "
+            . "FROM stb_media WHERE id = ".$id;
+        $media = $this->db->getRow( $sql ); //var_dump($this->db);
+        return $media;
     }
 }

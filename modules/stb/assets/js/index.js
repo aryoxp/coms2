@@ -32,7 +32,9 @@ $(function(){
     $('.media-description').each(function() {
         $(this).data('originalHeight', $(this).height());
         var originalHeight = $(this).height();
-        $(this).css({'height': '65px', 'overflow': 'hidden'});
+        if(originalHeight<65)
+            $(this).css({'height': originalHeight+'px', 'overflow': 'hidden'});
+        else $(this).css({'height': '65px', 'overflow': 'hidden'});
         $(this).dblclick(function() {
             if($(this).css("height") != "65px") {
                 $(this).animate({height:'65px'}, 300, 'swing');

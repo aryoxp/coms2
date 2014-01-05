@@ -38,7 +38,8 @@ class stb_media extends comsmodule {
         $result = $mmedia->save();
         if($result > 0) {
             $notification->add('Media successfully saved to database.', $notification::success);
-            $this->redirect('module/stb/media');
+            if(isset($_POST['id'])) $this->redirect('module/stb/media/edit/'.$_POST['id']);
+            else $this->redirect('module/stb/media');
         } else {
             $notification->add('Unable to save media. '.$mmedia->error, $notification::error);
             $this->redirect('module/stb/media/newmedia');
@@ -66,8 +67,11 @@ class stb_media extends comsmodule {
         $this->add_style('css/fileinput.css');
         $this->add_style('css/editor.css');
         $this->coms->add_script('ckeditor/ckeditor.js');
-        $this->add_script('js/write.js');
+        $this->add_script('js/edit.js');
 
-        $this->view('newmedia.php');
+        $mmedia = new model_media();
+        $media = $mmedia->get($id); //var_dump($media);
+        $data['media'] = $media;
+        $this->view('editmedia.php', $data);
     }
 }
