@@ -40,6 +40,18 @@
     min-height: 400px;
 }
 
+@media screen and (max-width: 767px) {
+    .coms-sidebar {
+        min-height: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    #accordion.panel-group {
+        display: none;
+        animation: display 200;
+    }
+}
+
 .coms-sidebar .btn-sidebar {
     margin-left: 1em;
     margin-right: 1em;
