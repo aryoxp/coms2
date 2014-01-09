@@ -11,7 +11,7 @@ class stb_media extends comsmodule {
 
     public function index() {
 
-        $mmedia = new model_media();
+        $mmedia = new model_media($this->coms);
         $data['media_tv'] = $mmedia->getAll('tv');
         $data['media_radio'] = $mmedia->getAll('radio');
         $data['media_vod'] = $mmedia->getAll('vod');

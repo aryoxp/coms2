@@ -23,9 +23,11 @@ class media {
 class model_media extends model {
 
     public $error;
+    private $coms;
 
-    public function __construct() {
+    public function __construct($coms = null) {
         parent::__construct();
+        if($coms) $this->coms = $coms;
     }
 
     public function install() {
@@ -101,8 +103,10 @@ class model_media extends model {
             $where['id'] = $this->db->escape($_POST['id']);
             $result = $this->db->update('stb_media', $data, $where);
             if($result == 1) {
+                $this->saveFile($where['id']);
                 return true;
             } else {
+                $this->saveFile($where['id']);
                 if($this->error == '') return true;
                 $this->error = $this->db->getLastError();
                 return false;
@@ -121,11 +125,29 @@ class model_media extends model {
                     $table = 'stb_media_vod'; break;
             }
             $this->db->insert($table, array('id'=>$id));
+            $this->saveFile($id);
             return $id;
         } else {
             $this->error = $this->db->getLastError();
             return $result;
         }
+    }
+
+    private function saveFile($id){
+        //var_dump($_FILES); exit;
+        $hash = md5($id);
+        $notification = new notification($this->coms);
+        if(!file_exists(APPLICATION.'files/logo')) {
+            if(mkdir(APPLICATION.'files/logo', 0777, true))
+                $notification->add('Logo directory created.');
+            else $notification->add('Unable to create logo direcotry', notification::error);
+        }
+        if(file_exists(APPLICATION.'files/logo')) {
+            if(move_uploaded_file($_FILES['logo']['tmp_name'], APPLICATION.'files/logo/'.$hash.".png"))
+                $notification->add('Logo '.$_FILES['tmp_name'].' uploaded to '.APPLICATION.'files/logo/'.$hash.".png", notification::success);
+            else $notification->add('Unable to upload logo or no logo file is being uploaded. '.$_FILES['logo']['name'], notification::error);
+        }
+        //exit;
     }
 
     public function getAll($type = null){
@@ -139,6 +161,7 @@ class model_media extends model {
             case 'vod':
                 $sql .= "WHERE m.id IN (SELECT id FROM stb_media_vod)"; break;
         }
+        $sql .= " ORDER BY m.id DESC ";
         $result = $this->db->query($sql); //var_dump($this->db);
         return $result;
     }
