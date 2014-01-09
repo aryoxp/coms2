@@ -192,4 +192,24 @@ class model_media extends model {
         $media = $this->db->getRow( $sql ); //var_dump($this->db);
         return $media;
     }
+
+    public function count($type = 'all') {
+        $table = '';
+        switch($type) {
+            case 'tv':
+                $table = 'stb_media_tv';
+                break;
+            case 'radio':
+                $table = 'stb_media_radio';
+                break;
+            case 'vod':
+                $table = 'stb_media_vod';
+                break;
+            default:
+                $table = 'stb_media';
+        }
+        $sql = "SELECT COUNT(id) FROM ".$table;
+        $count = $this->db->getVar($sql);
+        return $count;
+    }
 }
