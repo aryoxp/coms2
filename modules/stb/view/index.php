@@ -39,7 +39,9 @@
                 foreach($media_tv as $m) { //var_dump($m);
                     ?>
                     <tr>
-                        <td><h3><?php echo $m->name; ?>
+                        <td>
+                            <img src="<?php echo $this->file('files/logo/'.md5($m->id).'.png'); ?>" class="logo pull-right">
+                            <h3><?php echo $m->name; ?>
                             <?php if($m->status) echo '<small><div class="label label-success">Active</div></small>';
                             else echo '<div class="label label-warning">Inactive</div>'
                             ?>
