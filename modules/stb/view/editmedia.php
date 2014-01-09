@@ -1,6 +1,12 @@
 <h2>Edit Media <small class="pull-right">
+        <div class="btn-group">
         <a href="<?php echo $this->location('module/stb/media'); ?>" class="btn btn-info btn-sm">
-            <span class="glyphicon glyphicon-list"></span> Media Index</a> </small></h2>
+            <span class="glyphicon glyphicon-list"></span> Media Index</a>
+        <a href="<?php echo $this->location('module/stb/media/newmedia'); ?>" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-plus"></span> New Media</a>
+        </div>
+    </small>
+</h2>
 <hr>
 <form id="form-newmedia" class="form-horizontal" enctype="multipart/form-data" role="form" method="post"
       action="<?php echo $this->location('module/stb/media/save'); ?>">
@@ -22,7 +28,8 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Media File URL</label>
         <div class="col-sm-10">
-            <input type="text" name="file" class="form-control" placeholder="Media File URL" value="<?php echo $media->file; ?>">
+            <input type="text" name="file" class="form-control" placeholder="Media File URL"
+                   value="<?php echo $media->file; ?>">
         </div>
     </div>
     <div class="form-group">
